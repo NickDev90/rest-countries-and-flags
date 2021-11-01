@@ -1,5 +1,4 @@
 import React from 'react';
-import { icons } from 'react-icons';
 import styled from 'styled-components';
 import {IoSearch} from 'react-icons/io5'
 
@@ -33,7 +32,7 @@ const Input = styled.input.attrs({
 
 
 function Search({search, setSearch}) {
-    console.log(search);
+
     return (
         <InputContainer>
             <IoSearch/>

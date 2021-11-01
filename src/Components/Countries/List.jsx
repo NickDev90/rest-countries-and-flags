@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Card from './Card';
+
+
 const Wrapper = styled.section`
     width: 100%;
     padding: 2rem 0;
@@ -20,10 +23,30 @@ const Wrapper = styled.section`
     }
 `
 
-const List = ({children}) => {
+const List = ({filteredCountries}) => {
     return (
         <Wrapper>
-           {children} 
+           {filteredCountries.map(c => {
+                    const countryInfo = {
+                        img: c.flags.png,
+                        name: c.name,
+                        info: [
+                            {
+                                title: 'Population',
+                                description: c.population.toLocaleString()
+                            },
+                            {
+                                title: 'Region',
+                                description: c.region.toLocaleString()
+                            },
+                            {
+                                title: 'Capital',
+                                description: c.capital.toLocaleString()
+                            },
+                        ]
+                    };
+                    return <Card key={c.name} {...countryInfo} />
+                })}
         </Wrapper>
     );
 };

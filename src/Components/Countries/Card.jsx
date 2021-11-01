@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 
-const Wrapper = styled.article`
+const Wrapper = styled.div`
     border-radius: var(--radii);
     background-color: var(--colors-ui-base);
     box-shadow: var(--shadow);
@@ -46,9 +47,12 @@ const CardListItem = styled.li`
 
 
 
-const Card = ({img, name, info=[], onClick}) => {
+const Card = ({img, name, info=[]}) => {
+
+    const {push} = useHistory();
+
     return (
-        <Wrapper>
+        <Wrapper onClick= { () => push(`/country/${name}`) } >
             <CardImage src={img} alt={name}/>
             <CardBody>
                 <CardTitle>{name}</CardTitle>
