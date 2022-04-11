@@ -24,6 +24,8 @@ const Wrapper = styled.section`
 `
 
 const List = ({filteredCountries}) => {
+
+    console.log(filteredCountries);
     return (
         <Wrapper>
            {filteredCountries.map(c => {
@@ -41,7 +43,7 @@ const List = ({filteredCountries}) => {
                             },
                             {
                                 title: 'Capital',
-                                description: c.capital.toLocaleString()
+                                description: c.capital
                             },
                         ]
                     };
